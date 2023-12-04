@@ -1,38 +1,35 @@
-//"jdbc:sqlite:C:\\Users\\Alumno-tarde\\Desktop\\Daniel Iturralde\\Eclipse\\Examen1\\Sistema\\sistema"
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Conexion {
-	
-//	CONEXION
-	Connection cx=null;
-	public Connection conectar () {
-		try {
-			Class.forName("org.sqlite.JDBC");
-			cx=DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Alumno-tarde\\Desktop\\Daniel Iturralde\\Eclipse\\Examen1\\Sistema\\sistema");
-			System.out.print("Estas conectado");
-		} catch (ClassNotFoundException |SQLException e) {
-			
-		}
-		return cx;		
-	}
-//	DESCONEXION
-	public void desconectar() {
-		try {
-			cx.close();{
-				System.out.print("La conexion ha cerrado");
-			}
-		} catch (SQLException e) {
-			System.out.print("La conexion ha fallado");
-			e.printStackTrace();
-		}
-		
-	}
-//	Pruebas conexión
-	public static void main (String[] args) {
-		Conexion cx=new Conexion();
-		cx.conectar();
-	}
-	
+    
+    private static final String URL_DB = "jdbc:sqlite:C:ejemplo;
+    
+    // CONEXION
+    public Connection conectar() {
+        Connection cx = null;
+        try {
+            Class.forName("org.sqlite.JDBC");
+            cx = DriverManager.getConnection(URL_DB);
+            System.out.println("Conexión establecida correctamente.");
+        } catch (ClassNotFoundException | SQLException e) {
+            System.out.println("Error al establecer la conexión.");
+            e.printStackTrace();
+        }
+        return cx;
+    }
+    
+    // DESCONEXION
+    public void desconectar(Connection cx) {
+        try {
+            if (cx != null && !cx.isClosed()) {
+                cx.close();
+                System.out.println("Conexión cerrada correctamente.");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al cerrar la conexión.");
+            e.printStackTrace();
+        }
+    }
 }
