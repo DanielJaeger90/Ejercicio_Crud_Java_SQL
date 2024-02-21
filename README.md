@@ -1,24 +1,36 @@
 
 EJERCICIO CRUD
 
+Creación de la base de datos:
 
-Funcionalidades
-El programa permite realizar las siguientes operaciones a través de un menú interactivo:
+Utilizamos MySQL para crear una base de datos llamada basketball_db con tres tablas: jugadores, equipos, y estadisticas. Cada una con sus columnas correspondientes para almacenar la información necesaria.
+Conexión a la base de datos:
 
-Añadir Jugador: Permite al usuario ingresar información sobre un nuevo jugador, incluyendo nombre, equipo, número, y altura. La información se inserta en la base de datos utilizando JDBC.
+Utilizamos JDBC para establecer una conexión con la base de datos basketball_db desde Java.
+Operaciones CRUD:
 
-Listar Jugadores: Muestra en la consola la información de todos los jugadores almacenados en la base de datos.
+Implementamos métodos en Java para realizar las operaciones CRUD:
+a. Crear (Create):
 
-Borrar Jugador: Permite al usuario eliminar a un jugador específico de la base de datos.
+Creamos métodos para insertar nuevos jugadores, equipos y estadísticas en sus respectivas tablas. Los datos pueden ser ingresados por el usuario o proporcionados como parámetros a los métodos.
+b. Leer (Read):
 
-Clase Jugadores
-La clase Jugadores representa a un jugador y se utiliza para almacenar información como nombre, equipo, número, altura e ID. Se utiliza en las operaciones de inserción y consulta de jugadores.
+Implementamos métodos para consultar y mostrar información de los jugadores, equipos y estadísticas almacenadas en la base de datos.
+c. Actualizar (Update):
 
-Base de Datos
-El programa se conecta a una base de datos SQLite ubicada en la ruta especificada en el código. Utiliza consultas SQL para insertar, consultar y borrar jugadores en la tabla Jugadores.
+Creamos métodos para actualizar información de jugadores, equipos o estadísticas existentes en la base de datos. Estos métodos pueden solicitar al usuario los nuevos valores o recibirlos como parámetros.
+d. Eliminar (Delete):
 
-Uso del Programa
-El programa utiliza la biblioteca JOptionPane para la entrada y salida en una interfaz gráfica simple. Las operaciones son manejadas a través de un menú que se repite hasta que el usuario elige salir.
+Implementamos métodos para eliminar jugadores, equipos o estadísticas de la base de datos.
+Interfaz de usuario en consola:
+
+Diseñamos una interfaz de usuario en consola que permite al usuario seleccionar qué operación CRUD desea realizar y proporcionar los datos necesarios.
+Manejo de errores:
+
+Implementamos manejo de excepciones para gestionar situaciones como datos ingresados incorrectamente, registros no encontrados o problemas de conexión a la base de datos.
+Cierre de conexión:
+
+Al finalizar todas las operaciones, cerramos la conexión JDBC para liberar recursos.
 
 Notas Adicionales
 El código maneja excepciones relacionadas con la conexión a la base de datos y la ejecución de consultas SQL.
